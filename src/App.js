@@ -25,6 +25,15 @@ class App extends Component {
         input: ''
       })
     }
+
+    deleteTodo = (i) => {
+      const arrayOfTodos = this.state.todos
+      arrayOfTodos.splice(i,1)
+      this.setState({
+        todos:[ ...arrayOfTodos]
+      })
+      
+    }
   
   render() {
   console.log('***is state***', this.state.isClicked)
@@ -36,7 +45,8 @@ class App extends Component {
            <input value={this.state.input} onChange={this.handleChange}/>
            <button onClick={this.formSubmit}>Submit</button>
          </form>
-         <TodoComponent todos={this.state.todos} />
+         <TodoComponent todos={this.state.todos} 
+         deleteTodo={(i) => this.deleteTodo(i)}/>
        </header>
      </div>
    );
