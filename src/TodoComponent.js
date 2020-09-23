@@ -1,14 +1,13 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
 const TodoComponent = (props) => {
     return (
         <div>
             <h1>Chipotaway</h1>
             <ul>
-                {props.todos.map((todo, index) => {
-                  return <li key={index}>{props.todos[index]}
-                  <button onClick={() => props.deleteTodo(index)}>Delete</button>
-                  </li>
+                {props.todos.map((item, index) => {
+                  return <TodoItem item={item}/>
                 })}
             </ul>
         </div>
